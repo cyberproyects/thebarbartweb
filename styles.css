@@ -533,3 +533,45 @@ li {
     }
 }
   
+/* Redes móviles (solo se ve en mobile con Bootstrap utilidades) */
+.redes-movil {
+    padding: 40px 0;
+    background-color: #111;
+    color: #fff;
+}
+
+.iconos-redes-movil a {
+    display: block;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.iconos-redes-movil a i {
+    margin-right: 8px;
+}
+
+.iconos-redes-movil a:hover {
+    color: #f39c12;
+}
+
+/* Redes del costado izquierdo */
+.social-links {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Ocultar en móviles */
+@media (max-width: 768px) {
+    .social-links {
+        display: none;
+    }
+}
