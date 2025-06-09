@@ -26,7 +26,7 @@ body {
 }
 
 #preloader span {
-    color: #f72585;
+    color: #ef69a6;
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     animation: blink 1s infinite;
@@ -60,7 +60,7 @@ h1,
 h2,
 h3 {
     font-family: 'Playfair Display', serif;
-    color: #f72585;
+    color: #ef69a6;
 }
 
 h4,
@@ -101,20 +101,20 @@ li {
 .navbar h1 a {
     display: block;
     /* 🔥 Esto es clave para que el <a> se comporte como bloque */
-    color: #f72585;
+    color: #ef69a6;
     text-decoration: none;
 }
 
 .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
-    color: #f72585;
+    color: #ef69a6;
     text-decoration: none;
 }
 
 /* Corrección para hover de los links del menú */
 .navbar-menu li a:hover {
-    color: #f72585;
+    color: #ef69a6;
 }
 
 
@@ -170,7 +170,7 @@ li {
 
 .social-links a:hover {
     transform: scale(1.2);
-    color: #f72585;
+    color: #ef69a6;
 }
 
 /* CARRUSEL */
@@ -194,7 +194,7 @@ li {
     max-width: 350px;
     height: auto;
     border-radius: 20px;
-    border: 4px solid #f72585;
+    border: 4px solid #ef69a6;
     margin-bottom: 20px;
 }
 
@@ -245,11 +245,11 @@ li {
 
 .blog-preview .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px #f72585;
+    box-shadow: 0 0 15px #ef69a6;
 }
 
 .blog-preview .card-title {
-    color: #f72585;
+    color: #ef69a6;
     font-family: 'Playfair Display', serif;
 }
 
@@ -268,7 +268,7 @@ li {
 }
 
 .btn-principal {
-    background-color: #f72585;
+    background-color: #ef69a6;
     color: #fff;
     border: none;
     border-radius: 30px;
@@ -291,7 +291,7 @@ li {
     padding: 15px;
     background-color: #222;
     /* fondo oscuro para la pregunta */
-    border: 1px solid #f72585;
+    border: 1px solid #ef69a6;
     /* borde fucsia para mantener tu color principal */
     margin-bottom: 5px;
     border-radius: 8px;
@@ -303,7 +303,7 @@ li {
 .faq-answer {
     display: none;
     padding: 15px;
-    border: 1px solid #f72585;
+    border: 1px solid #ef69a6;
     border-top: none;
     margin-bottom: 15px;
     border-radius: 0 0 8px 8px;
@@ -329,7 +329,7 @@ li {
 }
 
 .faq-question:hover {
-    background-color: #f72585;
+    background-color: #ef69a6;
     color: #000;
 }
 
@@ -409,7 +409,7 @@ li {
 }
 
 .footer-right a:hover {
-    color: #f72585;
+    color: #ef69a6;
 }
 
 /* RESPONSIVE */
@@ -458,7 +458,7 @@ li {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: #f72585;
+    background: #ef69a6;
     display: block;
     transition: 0.3s;
 }
