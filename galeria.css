@@ -26,7 +26,7 @@ body {
 }
 
 #preloader span {
-    color: #f72585;
+    color: #ef69a6;
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     animation: blink 1s infinite;
@@ -61,7 +61,7 @@ main {
 
 h1 {
     font-family: 'Playfair Display', serif;
-    color: #f72585;
+    color: #ef69a6;
 }
 
 /* NAVBAR */
@@ -91,7 +91,7 @@ h1 {
 .navbar h1 a {
     display: block;
     /* 🔥 Esto es clave para que el <a> se comporte como bloque */
-    color: #f72585;
+    color: #ef69a6;
     text-decoration: none;
    
 }
@@ -99,13 +99,13 @@ h1 {
 .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
-    color: #f72585;
+    color: #ef69a6;
     text-decoration: none;
 }
 
 /* Corrección para hover de los links del menú */
 .navbar-menu li a:hover {
-    color: #f72585;
+    color: #ef69a6;
 }
 
 
@@ -165,7 +165,7 @@ h1 {
 
 .social-links a:hover {
     transform: scale(1.2);
-    color: #f72585;
+    color: #ef69a6;
 }
 
 /* Responsive */
@@ -193,7 +193,7 @@ p.lead {
 
 .galeria-img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px #f72585;
+    box-shadow: 0 0 10px #ef69a6;
 }
 
 .galeria-img.animate {
@@ -242,7 +242,7 @@ p.lead {
 }
 
 .footer-right a:hover {
-    color: #f72585;
+    color: #ef69a6;
 }
 
 /* RESPONSIVE */
@@ -304,7 +304,7 @@ p.lead {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: #f72585;
+    background: #ef69a6;
     display: block;
     transition: 0.3s;
 }
@@ -378,7 +378,7 @@ p.lead {
 
 .instagram-section h2 {
     font-size: 28px;
-    color: #f72585;
+    color: #ef69a6;
     margin-bottom: 10px;
     font-family: 'Playfair Display', serif;
 }
@@ -403,7 +403,7 @@ header.text-center {
 
 header.text-center h1 {
     font-size: 36px;
-    color: #f72585;
+    color: #ef69a6;
     font-family: 'Playfair Display', serif;
     margin-bottom: 15px;
 }

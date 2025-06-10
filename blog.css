@@ -33,7 +33,7 @@ body {
 }
 
 #preloader span {
-    color: #f72585;
+    color: #ef69a6;
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     animation: blink 1s infinite;
@@ -135,13 +135,13 @@ body {
 }
 
 .navbar-menu li a:hover {
-    color: #f72585;
+    color: #ef69a6;
 }
 
 .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
-    color: #f72585;
+    color: #ef69a6;
     text-decoration: none;
 }
 
@@ -159,7 +159,7 @@ body {
 
 .social-links a {
     color: #000;
-    background: #f72585;
+    background: #ef69a6;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -172,7 +172,7 @@ body {
 
 .social-links a:hover {
     background: #fff;
-    color: #f72585;
+    color: #ef69a6;
 }
 
 /* Contenido del blog */
@@ -273,11 +273,11 @@ body {
     font-size: 28px;
     margin-bottom: 10px;
     transition: color 0.3s ease, text-decoration 0.3s ease;
-    color: #f72585;
+    color: #ef69a6;
 }
 
 .blog-title:hover {
-    color: #f72585; /* Color fucsia al pasar el mouse */
+    color: #ef69a6; /* Color fucsia al pasar el mouse */
     text-decoration: underline;
 }
 
@@ -339,7 +339,7 @@ body {
 }
 
 .footer-right a:hover {
-    color: #f72585;
+    color: #ef69a6;
 }
 
 /* RESPONSIVE */
@@ -367,7 +367,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: #f72585;
+    background: #ef69a6;
     display: block;
     transition: 0.3s;
 }
@@ -467,7 +467,7 @@ body {
 .blog-intro-title {
     font-family: 'Playfair Display', serif;
     font-size: 32px;
-    color: #f72585;
+    color: #ef69a6;
     margin-bottom: 15px;
 }
 
@@ -485,7 +485,7 @@ body {
 
 .instagram-section h2 {
     font-size: 28px;
-    color: #f72585;
+    color: #ef69a6;
     font-family: 'Playfair Display', serif;
     margin-bottom: 10px;
 }
