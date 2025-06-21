@@ -1,315 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheBarBart - Tattoo Artist</title>
+  <meta charset="UTF-8">
+  <title>Intro Bárbara Albornoz</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Playfair Display', serif;
+      background: black;
+    }
 
-    <!-- Fuentes de Google -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@500&family=Lato:wght@400&display=swap"
-        rel="stylesheet">
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
 
-    <!-- Bootstrap y FontAwesome -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    h1 {
+      font-size: 4.5rem;
+      color: #ff4fa2;
+      letter-spacing: 5px;
+      text-shadow: 0 0 15px #ff4fa2;
+      animation: fadeInDown 1.2s ease-out;
+    }
 
-    <!-- AOS Animations -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    p {
+      font-size: 1.3rem;
+      color: #fce4ec;
+      margin: 20px 0;
+      animation: fadeIn 2s ease-out;
+    }
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <link rel="icon" href="./img/favicon.png" type="image/png">
+    button {
+      background: transparent;
+      color: #fff;
+      padding: 12px 30px;
+      border: 2px solid #ff4fa2;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      animation: fadeInUp 1.5s ease-out;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #ff4fa2;
+    }
 
+    button:hover {
+      background: #ff4fa2;
+      color: #000;
+      box-shadow: 0 0 25px #ff4fa2;
+    }
 
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  </style>
 </head>
-
 <body>
 
+  <div id="overlay">
+    <h1>BARBARA ALBORNOZ</h1>
+    <p>Arte permanente, actitud eterna</p>
+    <button onclick="window.location.href='index.html'">Ir a la web</button>
+  </div>
 
-    <div id="particles-js"></div>
+  <!-- Fondo animado con partículas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+    let scene = new THREE.Scene();
+    let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 50;
 
-    <!-- PRELOADER -->
-    <div id="preloader">
-        <span>Cargando...</span>
-    </div>
+    let renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-    <!-- Header con Navbar -->
-    <header>
-        <nav class="navbar">
-            <div class="container-navbar">
-                <a href="index.html" class="navbar-brand">Barbara Albornoz</a>
-                <ul class="navbar-menu desktop-menu">
-                    <li><a href="index.html#inicio">Inicio</a></li>
-                    <li><a href="index.html#sobremi">Sobre Mí</a></li>
-                    <li><a href="galeria.html">Galería</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="index.html#turno">Agendar Turno</a></li>
-                </ul>
-            </div>
+    // Generar partículas
+    const particlesCount = 1000;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particlesCount * 3);
 
-            <!-- Botón hamburguesa (móvil) -->
-            <button class="hamburger" aria-label="Abrir menú" id="hamburger-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            </div>
-        </nav>
+    for (let i = 0; i < particlesCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 200;
+    }
 
-        <!-- Menú móvil -->
-        <div class="mobile-menu" id="mobileMenu">
-            <ul class="navbar-menu">
-                <li><a href="index.html#inicio">Inicio</a></li>
-                <li><a href="index.html#sobremi">Sobre Mí</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#turno">Agendar Turno</a></li>
-            </ul>
-        </div>
-        </nav>
-    </header>
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const material = new THREE.PointsMaterial({ color: 0xff4fa2, size: 1.5, transparent: true, opacity: 0.7 });
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
 
+    function animate() {
+      requestAnimationFrame(animate);
+      particles.rotation.y += 0.001;
+      particles.rotation.x += 0.0005;
+      renderer.render(scene, camera);
+    }
 
+    animate();
 
-    <!-- Redes Sociales -->
-    <div class="social-links">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/barbaralbornozx/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-    </div>
-
-    <!-- Carrusel -->
-    <section id="inicio" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="./img/IMG_8632.jpeg" class="d-block w-100" alt="Imagen 1">
-            </div>
-            <div class="carousel-item">
-                <img src="./img/IMG_8581.jpeg" class="d-block w-100" alt="Imagen 2">
-            </div>
-            <div class="carousel-item">
-                <img src="./img/IMG_8658.jpeg" class="d-block w-100" alt="Imagen 3">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#inicio" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#inicio" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </section>
-
-    <!-- Secciones -->
-    <section id="sobremi" class="section" data-aos="fade-up">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center ">
-                    <img src="./img/fotobarbie.jpeg" alt="Foto Artista" class="foto-artista">
-                </div>
-                <div class="col-md-6 text-center">
-                    <h2>Sobre Mí</h2>
-                    <p>
-                        ¡Hola! Soy Barbie, una tatuadora apasionada y amante de la tinta con más de 10 años metiendo
-                        arte en la piel.
-
-                        No importa si querés un tatuaje personalizado, algo clásico o algo totalmente loco que se te
-                        ocurra — acá estoy para hacerlo realidad.
-
-                        Me encanta escuchar sus historias, ideas locas y sueños, y convertirlos en tatuajes únicos que
-                        van a llevar con orgullo (y un poco de actitud).
-
-                        Más que una tatuadora, soy su cómplice en esta aventura artística.
-
-                        Si querés un tatuaje con onda, lleno de significado y hecho con todo el cariño, sabés dónde
-                        encontrarme.
-
-                        ¡Nos vemos en el estudio para darle vida a tus ideas!
-                    </p>
-                    <a href="#turno" class="btn-principal">Agendar Turno</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Redes sociales versión móvil -->
-    <section class="redes-movil d-block d-md-none" data-aos="fade-up">
-        <div class="container text-center">
-            <h2>Seguime en redes</h2>
-            <div class="iconos-redes-movil mt-3">
-                <a href="https://www.instagram.com/barbaralbornozx/" target="_blank">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a href="https://facebook.com" target="_blank">
-                    <i class="fab fa-facebook-f"></i> Facebook
-                </a>
-                <a href="https://twitter.com" target="_blank">
-                    <i class="fab fa-twitter"></i> Twitter
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="galeria" class="section" data-aos="fade-up">
-        <div class="container text-center">
-            <h2>Galería de Tattoos</h2>
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <img src="./img/tat10.jpeg" alt="Tatuaje 1" class="img-fluid galeria-img">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <img src="./img/tat9.jpeg" alt="Tatuaje 2" class="img-fluid galeria-img">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <img src="./img/tat8.jpeg" alt="Tatuaje 3" class="img-fluid galeria-img">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <img src="./img/tat7.jpeg" alt="Tatuaje 4" class="img-fluid galeria-img">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <img src="./img/tat6.jpeg" alt="Tatuaje 5" class="img-fluid galeria-img">
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <img src="./img/tat5.jpeg" alt="Tatuaje 6" class="img-fluid galeria-img">
-                </div>
-            </div>
-            <a href="galeria.html" class="btn-principal">Ver Galería Completa</a>
-        </div>
-    </section>
-
-
-    <section id="blog" class="section blog-preview" data-aos="fade-up">
-        <div class="container text-center">
-            <h2>Mi Blog</h2>
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <div class="card bg-dark text-white h-100">
-                        <img src="./img/IMG_3740.jpeg" class="card-img-top img-preview-blog" alt="Tatuaje blog 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Cómo preparar tu piel antes de un tatuaje</h5>
-                            <p class="card-text">Un buen tatuaje no solo depende del diseño y la técnica, sino también
-                                de cómo está tu piel en el momento de tatuarte. Prepararte correctamente antes de tu
-                                cita puede...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <div class="card bg-dark text-white h-100">
-                        <img src="./img/tat6.jpeg" class="card-img-top img-preview-blog" alt="Tatuaje blog 2">
-                        <div class="card-body">
-                            <h5 class="card-title">El proceso creativo detrás de un tatuaje personalizado</h5>
-                            <p class="card-text">Un tatuaje personalizado es más que una imagen linda: es una obra de
-                                arte hecha a medida. En este artículo te cuento cómo trabajo...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <div class="card bg-dark text-white h-100">
-                        <img src="./img/tat4.jpeg" class="card-img-top img-preview-blog" alt="Tatuaje blog 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Cuidados posteriores: cómo sanar tu tatuaje correctamente</h5>
-                            <p class="card-text">Una vez terminado el tatuaje, empieza la parte más importante:
-                                cuidarlo. Una mala cicatrización puede arruinar un gran trabajo....</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a href="blog.html" class="btn-principal mt-3">Leer el Blog Completo</a>
-        </div>
-    </section>
-
-
-
-    <section class="faq" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center">Preguntas Frecuentes</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="faq-item">
-                        <div class="faq-question">¿Cómo agendo un turno?</div>
-                        <div class="faq-answer">Podés agendar un turno contactándome vía Instagram o completando el
-                            formulario de esta web en la sección "Agendá tu Turno".</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">¿Qué estilos de tatuajes hacés?</div>
-                        <div class="faq-answer">Realizo principalmente realismo, blackwork, y tatuajes personalizados
-                            según tus ideas.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">¿Cómo me preparo para un tatuaje?</div>
-                        <div class="faq-answer">Dormí bien, comé antes de venir, hidratate y evitá tomar alcohol 24 hs
-                            antes de tu cita.</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="faq-item">
-                        <div class="faq-question">¿Cómo cuido mi tatuaje nuevo?</div>
-                        <div class="faq-answer">Te daré instrucciones específicas, pero generalmente incluye lavado
-                            suave, hidratación y evitar el sol directo.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">¿Que metodos de pago acepto?</div>
-                        <div class="faq-answer">Acepto pagos en efectivo y transferencia.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">¿Duele mucho tatuarse?</div>
-                        <div class="faq-answer">Depende de la zona y tu tolerancia al dolor, pero siempre trato de que
-                            la experiencia sea lo más cómoda posible.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="turno" class="section formulario-turno" data-aos="fade-up">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11563383.070205193!2d7.537208000000001!3d41.87194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6195ad6dbf7d%3A0x147f1b16a4020db8!2sItalia!5e0!3m2!1ses-419!2sar!4v1714328902684!5m2!1ses-419!2sar"
-            width="100%" height="100%" style="border:0; filter: brightness(0.7) blur(1px);" allowfullscreen=""
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map-background">
-        </iframe>
-
-        <div class="container text-center">
-            <div class="form-container">
-                <h2>Agendá tu Turno</h2>
-                <form action="https://formsubmit.co/albornozb58@gmail.com" method="POST">
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <textarea name="mensaje" placeholder="Consulta o idea de tatuaje" required></textarea>
-
-                    <!-- Anti-spam -->
-                    <input type="text" name="_honey" style="display:none">
-
-                    <button type="submit" class="btn-principal">Enviar</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-left">
-            <p>Creado por <strong>CyberArgento</strong> &copy; 2025 Barbara Albornoz</p>
-        </div>
-        <div class="footer-right">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/barbaralbornozx/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <script src="script.js"></script>
-    <!-- Scripts de partículas -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 
 </body>
-
 </html>
